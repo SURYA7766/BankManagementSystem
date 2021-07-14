@@ -1,0 +1,47 @@
+body {
+  height: 100vh;
+  background-color: darkslategray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+p{
+  color: azure;
+}
+input {
+  margin: 3px;
+  height: 7vh;
+  width: 25vw;
+  background-color: rosybrown;
+  color: midnightblue;
+  padding: 0.15rem;
+  text-align: start;
+  border: black solid 1px;
+}
+Button {
+  margin-top: 10px;
+  height: 6vh;
+  width: 4rem;
+  background-color: darkcyan;
+  color: black;
+  color: antiquewhite;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  padding: 0.15rem;
+  text-align: center;
+  border: black solid 1px;
+  border-radius: 5%;
+  margin-left: 40%;
+}
+.FullWidth {
+  width: 70%;
+}
+.small {
+  width: 20%;
+}
+label {
+  font-size: larger;
+  font-weight: bolder;
+  color: whitesmoke;
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'home/style.css' %}" />
+    <link rel="icon" type="image/x-icon" href="{%  static 'icons8-bank-building-24.png' %}">
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #1a2a6c; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #fdbb2d,
+          #b21f1f,
+          #1a2a6c
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #fdbb2d,
+          #b21f1f,
+          #1a2a6c
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        font-family: "Muli", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      nav {
+        background-color: #fff;
+        padding: 20px;
+        width: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        transition: width 0.6s linear;
+        overflow-x: hidden;
+      }
+
+      nav.active {
+        width: 275px;
+      }
+
+      nav ul {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 0;
+        transition: width 0.6s linear;
+      }
+
+      nav.active ul {
+        width: 100%;
+      }
+
+      nav ul li {
+        font-weight: 900;
+        font-size: 1.2rem;
+        transform: rotateY(0deg);
+        opacity: 0;
+        transition: transform 0.6s linear, opacity 0.6s linear;
+      }
+
+      nav.active ul li {
+        opacity: 1;
+        transform: rotateY(360deg);
+      }
+
+      nav ul a {
+        position: relative;
+        color: #000;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+
+      .icon {
+        background-color: #fff;
+        border: 0;
+        cursor: pointer;
+        padding: 0;
+        position: relative;
+        height: 30px;
+        width: 30px;
+      }
+
+      .icon:focus {
+        outline: 0;
+      }
+
+      .icon .line {
+        background-color: #5290f9;
+        height: 2px;
+        width: 20px;
+        position: absolute;
+        top: 10px;
+        left: 5px;
+        transition: transform 0.6s linear;
+      }
+
+      .icon .line2 {
+        top: auto;
+        bottom: 10px;
+      }
+
+      nav.active .icon .line1 {
+        transform: rotate(-765deg) translateY(5.5px);
+      }
+
+      nav.active .icon .line2 {
+        transform: rotate(765deg) translateY(-5.5px);
+      }
+    </style>
+    <title>Bank Application</title>
+  </head>
+  <body class="grad" onload="toggler()">
+    <nav class="active" id="nav">
+      <ul>
+        <li><a href="{% url 'admin:index' %}">Employee</a></li>
+        <li><a href="{% url 'loginuser' %}">Customer</a></li>
+      </ul>
+      <button class="icon" id="toggle">
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+      </button>
+    </nav>
+    <script>
+      const toggle = document.getElementById("toggle");
+      const nav = document.getElementById("nav");
+      function randomChoice(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+      }
+      const y = [
+        `background: #c31432;
+    background: -webkit-linear-gradient(to right, #240b36, #c31432); 
+    background: linear-gradient(to right, #240b36, #c31432); 
+`,
+        `background: #12c2e9;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+`,
+        `background: #b92b27;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+`,
+        `background: #8A2387;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #F27121, #E94057, #8A2387);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #F27121, #E94057, #8A2387); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+`,
+        `background: #59C173;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #5D26C1, #a17fe0, #59C173);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #5D26C1, #a17fe0, #59C173); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+`,
+        `background: #40E0D0;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+`,
+        `background: #1D4350;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #A43931, #1D4350);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #A43931, #1D4350); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+`,
+        `background: #7b4397;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #dc2430, #7b4397);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #dc2430, #7b4397); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+`,
+        `background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 80%, rgba(252,176,69,1) 100%);`,
+        `background: #360033;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #0b8793, #360033);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #0b8793, #360033); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+`,
+      ];
+
+      function toggler() {
+        nav.classList.toggle("active");
+        document.querySelector(".grad").style.cssText = randomChoice(y);
+      }
+
+      toggle.addEventListener("click", toggler);
+    </script>
+  </body>
+</html>

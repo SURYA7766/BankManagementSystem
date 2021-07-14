@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<center>
+<div class="container">
+<br>
+<br>
+<h6> {{ error }}</h6>
+    <form method="POST" >
+        {% csrf_token %}
+        {{ form.as_p }}
+
+      <button class="btn-dark btn-lg d-grid gap-2 col-6 mx-auto ">login</button>
+    </form>
+    <br />
+    <a href="{% url 'signupuser' %}" style="color: #222831;" class="blockquote">Create new account with zero Balance</a>
+</div>
+
+</center>
+<script>
+
+          var y= document.querySelectorAll("label")
+          for(i of y){
+            i.style.fontWeight = 500
+            i.style.margin="0.5rem 0"
+            i.classList.add("display-6")
+          }
+          var z=document.querySelectorAll("input")
+          for(i of z){
+            i.style.margin="0.5rem 0"
+            i.classList.add("form-control")
+          }
+        
+          </script>
+{% endblock %}

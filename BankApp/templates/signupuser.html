@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+        <div class="container">
+            <br>
+            <br>
+                <h6 style="margin: 1rem;color: red">{{ error }}</h6>
+            <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn-dark",type="submit">Signup</button>
+            </form>
+        </div>
+        <script>
+          var x=document.querySelector("body")
+          var ul = document.querySelectorAll("ul")
+          var y= document.querySelectorAll("label")
+          var k=document.querySelector("button")
+          k.style.display="none"
+          var z= document.querySelectorAll(".helptext")
+          for(i of y){
+            i.style.fontWeight = 'bold'
+          }
+          for(i of ul){
+            i.style.display = 'none'
+          }
+          for(i of z){
+            i.style.display = 'none'
+          }
+          x.style.backgroundColor = '#ffeebb'
+          </script>
+
+          <script>
+
+          var y= document.querySelectorAll("label")
+          for(i of y){
+            i.style.fontWeight = 500
+            i.style.margin="0.1rem 0"
+            i.classList.add("display-6")
+          }
+          var z=document.querySelectorAll("input")
+          for(i of z){
+            i.style.margin="0.1rem 0"
+            i.classList.add("form-control")
+          }
+        
+          </script>
+
+{% endblock %}

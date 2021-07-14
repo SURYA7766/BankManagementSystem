@@ -1,0 +1,40 @@
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: goldenrod;
+}
+input {
+  margin: 3px;
+  height: 7vh;
+  width: 25vw;
+  background-color: darkslategray;
+  color: antiquewhite;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  padding: 0.15rem;
+  text-align: start;
+  border: black solid 1px;
+  border-radius: 5%;
+}
+a {
+  font-size: x-large;
+  color: black;
+}
+button {
+  margin-top: 10px;
+  height: 6vh;
+  width: 7vw;
+  background-color: rgb(214, 134, 123);
+  color: black;
+  font-size: x-large;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  padding: 0.15rem;
+  text-align: center;
+  border: black solid 1px;
+  border-radius: 5%;
+  margin-left: 40%;
+}

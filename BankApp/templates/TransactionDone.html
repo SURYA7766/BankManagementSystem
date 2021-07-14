@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div style="display: flex;height: 80vh;flex-direction: column ;align-items: center;justify-content: center;
+" >
+    <center style="align-items: center"><h1 style="color: forestgreen" class="display-4" >Transaction Done! 🤩</h1></center>
+        <center style="align-items: center"><h1 style="font-size: 4rem;color: forestgreen" class="display-6">Available balance: <span style="color: red">{{ x }}</span></h1></center>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="Submit" style="margin:2rem" class="btn btn-warning">Go to Home Page</button>
+    </form>
+    </div>
+
+    <script>
+          var Z= document.querySelector("body")
+          Z.style.backgroundColor="#ffecda"
+          </script>
+
+{% endblock %}
